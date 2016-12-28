@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -13,11 +7,15 @@ import {
 } from 'react-native';
 
 import Header from './src/components/header';
+import AlbumList from './src/components/album_list';
 
 export default class albums extends Component {
   render() {
     return (
-        <Header text='Album' />
+        <View>
+            <Header text={'Albums'} />
+            <AlbumList />
+        </View>
     );
   }
 }
