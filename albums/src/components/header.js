@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 60,
         paddingTop: 15,
+        borderBottomWidth: 1,
+        borderColor: '#000',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
