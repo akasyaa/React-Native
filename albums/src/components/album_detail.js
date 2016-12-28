@@ -4,7 +4,7 @@ import Card from './card';
 import CardSection from './card_section';
 
 const AlbumDetail = ({ album }) => {
-    const { title, artist, thumbnail_image } = album;
+    const { title, artist, thumbnail_image, image } = album;
 
     return (
         <Card>
@@ -20,6 +20,12 @@ const AlbumDetail = ({ album }) => {
                     <Text>{artist}</Text>
                 </View>
             </CardSection>
+            <CardSection>
+                <Image
+                    style={styles.coverImage}
+                    source={{ uri: image }}
+                />
+            </CardSection>
         </Card>
     );
 };
@@ -28,7 +34,6 @@ const styles = StyleSheet.create({
     thumbnailContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 10,
         marginRight: 10
     },
     albumHeader: {
@@ -42,6 +47,11 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 16,
         fontWeight: 'bold'
+    },
+    coverImage: {
+        height: 300,
+        flex: 1,
+        width: null
     }
 });
 
