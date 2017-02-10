@@ -32,7 +32,7 @@ const AlbumDetail = ({ album }) => {
             </CardSection>
 
             <CardSection>
-                <Button onPress={onPress} text={'Buy'} />
+                <Button onPress={onPress}>Buy</Button>
             </CardSection>
         </Card>
     );
