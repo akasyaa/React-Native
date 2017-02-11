@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
-import { Button, Card, CardSection } from '.';
+import { Button, Card, CardSection, Input } from '.';
 
 class Login extends Component {
     state = { text: '' };
@@ -9,12 +8,18 @@ class Login extends Component {
         return (
             <Card>
                 <CardSection>
-                    <TextInput
+                    <Input
+                        label="Email"
                         value={this.state.text}
-                        onChangeText={text => this.setState({ text })}
-                        style={styles.textInputStyle} />
+                        onChangeText={ text => this.setState({ text }) }
+                      />
                 </CardSection>
                 <CardSection>
+                    <Input
+                        label="Password"
+                        value={this.state.text}
+                        onChangeText={ text => this.setState({ text }) }
+                      />
                 </CardSection>
                 <CardSection>
                     <Button>
@@ -25,12 +30,5 @@ class Login extends Component {
         );
     };
 };
-
-const styles = StyleSheet.create({
-    textInputStyle: {
-        height: 20,
-        width: 300
-    }
-});
 
 export { Login }
