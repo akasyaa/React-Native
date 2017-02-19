@@ -10,7 +10,7 @@ class Login extends Component {
                 <CardSection>
                     <Input
                         label="Email"
-                        value={this.state.text}
+                        value={this.state.email}
                         onChangeText={ email => this.setState({ email }) }
                         placeholder="user@domain.com"
                       />
@@ -18,9 +18,10 @@ class Login extends Component {
                 <CardSection>
                     <Input
                         label="Password"
-                        value={this.state.text}
+                        value={this.state.password}
                         onChangeText={ password => this.setState({ password }) }
                         placeholder="Enter Password"
+                        secure="True"
                       />
                 </CardSection>
                 <CardSection>
