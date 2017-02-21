@@ -8,7 +8,9 @@ class Login extends Component {
         super(props);
         this.state = { email: '', password: '', error: '', loading: false };
         this.onButtonPress = this.onButtonPress.bind(this);
-    };
+        this.onLoginSuccess = this.onLoginSuccess.bind(this);
+        this.onLoginFail = this.onLoginFail.bind(this);
+    }
 
     onButtonPress() {
         const { email, password } = this.state;
@@ -18,13 +20,26 @@ class Login extends Component {
         // Attempt to sign in. Attempt to sign up if account does not exist.
         // Throw an error if sign up fails.
         firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(this.onLoginSuccess)
             .catch(() => {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .catch(() => {
-                        this.setState({ error: 'Authentication Failed.', loading: false });
-                    });
+                    .then(this.onLoginSuccess)
+                    .catch(this.onLoginFail);
             });
-    };
+    }
+
+    onLoginSuccess() {
+        this.setState({
+            email: '',
+            password: '',
+            error: '',
+            loading: false
+        });
+    }
+
+    onLoginFail() {
+        this.setState({ error: 'Authentication Failed.', loading: false });
+    }
 
     renderButton() {
         if (this.state.loading) {
@@ -36,7 +51,7 @@ class Login extends Component {
                 Log in
             </Button>
         );
-    };
+    }
 
     render() {
         return (
@@ -66,7 +81,7 @@ class Login extends Component {
                 </CardSection>
             </Card>
         );
-    };
+    }
 };
 
 const styles = StyleSheet.create({
