@@ -7,14 +7,18 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"eslint": "^3.17.1",
 		"react": "~15.4.1",
 		"react-native": "0.42.0",
 		"react-redux": "^5.0.3",
-		"redux": "^3.6.0"
+		"redux": "^3.6.0",
+		"remote-redux-devtools": "^0.5.7"
 	},
 	"devDependencies": {
+		"babel-eslint": "^7.1.1",
 		"babel-jest": "19.0.0",
 		"babel-preset-react-native": "1.9.1",
+		"eslint-plugin-react": "^6.10.0",
 		"jest": "19.0.2",
 		"react-test-renderer": "~15.4.1"
 	},
